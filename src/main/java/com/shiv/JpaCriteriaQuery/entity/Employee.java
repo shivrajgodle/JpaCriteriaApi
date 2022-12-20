@@ -23,4 +23,7 @@ public class Employee {
 
     @Column(name="DEPARTMENT_NAME")
     private String department;
+
+    @Column(name="SALARY")
+    private Long salary;
 }

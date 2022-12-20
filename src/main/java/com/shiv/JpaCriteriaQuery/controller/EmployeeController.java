@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class EmployeeController {
@@ -49,5 +51,14 @@ public class EmployeeController {
 
         return employeeRepository.findAll(specification);
     }
+
+
+    //orderby
+    @GetMapping("/employees/orderby")
+    public List<Employee> getEmployeesBysalary(@RequestBody List<Employee> employee){
+
+        return employeeRepository.orderBySalary(employee);
+    }
+
 
 }
