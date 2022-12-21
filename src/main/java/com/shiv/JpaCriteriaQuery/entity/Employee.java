@@ -1,5 +1,6 @@
 package com.shiv.JpaCriteriaQuery.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,4 +28,12 @@ public class Employee {
 
     @Column(name="SALARY")
     private Long salary;
+
+    public Employee(int id, String firstname) {
+        this.id = id;
+        this.firstname = firstname;
+    }
+
+
+
 }
